@@ -1,0 +1,40 @@
+::::::::::::::::::::::::::::::::::::::::: REACT LIBRARY ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+ Introduction::
+ 
+  - npx create-react-app my-app or .  => To create a folder and add files or add files in the current folder.
+  
+ Structure::
+ 
+  Class Based
+      
+      - import React, {Component} from 'react';
+        import './App.css';
+
+        class App extends Component {
+          render(){
+            return ( 
+              <div className = "App" >
+                <h1>Hello React</h1>
+              </div>
+            );
+          }
+        }
+
+        export default App;
+      
+     - 
+  
+  Function Based
+  
+    - 
+    
+ ::::::::::::::::::::::::::::::::::::::::::::::: JSX :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
+    - className => class
+    - htmlFor => for 
+    - Wrapped around a single parent tag
+      => can use <React.Fragment>  or just <></>
+    - Anything inside {...} is Javascript  
+      
+      
