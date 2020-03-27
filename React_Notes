@@ -4,14 +4,23 @@
  
   - npx create-react-app my-app or .  => To create a folder and add files or add files in the current folder.
   
+ Extras::
+  
+  - React Extension::
+     => rce -> For Class based
+     => rfc -> For function based 
+  - .env.local => to store the key and stuff in environmental variables, all starts with REACT_
+  
+  
  Structure::
  
-  Class Based
+  Class Based => Used when states was needed, but now because of the react hooks functional based can also have states
       
       - import React, {Component} from 'react';
         import './App.css';
 
-        class App extends Component {
+       export default class App extends Component {
+         state={}
           render(){
             return ( 
               <div className = "App" >
@@ -19,15 +28,39 @@
               </div>
             );
           }
-        }
-
-        export default App;
-      
-     - 
+        }      
   
   Function Based
-  
-    - 
+
+     - import React from 'react'; => Used when state is not used
+       const funName = (prop)=> {
+        return (
+           <div className = "App" >
+                <h1>Hello React</h1>
+           </div>
+        );
+       }
+       funName.propTypes = {}
+       funName.defaultProps = {}
+ 
+ :::::::::::::::::::::::::::::::::::::::::::::: Core :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ 
+  - Props => Used to pass values to child components passed in the tag and accessed by
+          => {this.props.varName}
+          =>   static defaultProps = { -> default props set 
+                 title: "NavBar"
+               };
+
+               static propTypes = {   -> robust types checking in prop 
+                 title: PropTypes.string.isRequired
+               }
+         => To send a prop up one level, just create a function and pass as paramter and trigger the call in the child with params
+         => Props are read only
+         
+  - State =>  Used to moniter the values changing and update the dom accordingly
+          => attaching the input element to the state, using onChange attribute
+          => 
+     
     
  ::::::::::::::::::::::::::::::::::::::::::::::: JSX :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  
@@ -38,6 +71,7 @@
     - Anything inside {...} is Javascript  
       
       
+    
  :::::::::::::::: Issues and Fixes :::::::::::::
  
  System files monitoring limit exceeded::
