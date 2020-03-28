@@ -10,6 +10,14 @@
      => rce -> For Class based
      => rfc -> For function based 
   - .env.local => to store the key and stuff in environmental variables, all starts with REACT_
+ 
+ - LifeCycles::
+    
+    => Mount -> constructor -> render -> componentDidMount
+    => Update -> render -> componentDidUpdate
+    => Unmount -> componentWillUnmount
+  
+    => useEffect(() => starters, [] ->cause for the change) => Used in place of life cycle hooks
   
   
  Structure::
@@ -45,7 +53,9 @@
  
  :::::::::::::::::::::::::::::::::::::::::::::: Core :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  
-  - Props => Used to pass values to child components passed in the tag and accessed by
+  - Props :: Class Based:-
+  
+          => Used to pass values to child components passed in the tag and accessed by
           => {this.props.varName}
           =>   static defaultProps = { -> default props set 
                  title: "NavBar"
@@ -56,11 +66,29 @@
                }
          => To send a prop up one level, just create a function and pass as paramter and trigger the call in the child with params
          => Props are read only
-         
-  - State =>  Used to moniter the values changing and update the dom accordingly
+
+         :: Function Based:-
+         => Passed via function 
+         => Func.defaultProps={} and Func.propTypes = {}
+        
+  
+  - State :: Class Based:-
+          =>  Used to moniter the values changing and update the dom accordingly
           => attaching the input element to the state, using onChange attribute
           => 
-     
+         :: Function Based:-
+          => const [sample, setSample] = useState('defaultVal')
+          
+    :::::::::::::::::::::::::::::::::::::::::::: Router ::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    
+    - npm i react-router-dom and 
+      import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+    - Wrap the App component with <Router>
+    - Wrap the Routes around the <Switch>
+    - Use <Route exact path='/' render={props => (<All the other components with routes>)}>
+    - Use this for seperate comp rendering from '/' <Route exact path='/about' component={About}></Route>
+    - Using <a> tag reset the state but Use Link from the dom for the <a> tag to persist the state of the child component
+      => <Link to="/">Home</Link>
     
  ::::::::::::::::::::::::::::::::::::::::::::::: JSX :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  
