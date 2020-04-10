@@ -13,12 +13,11 @@
  
  - LifeCycles::
     
-    => Mount -> constructor -> render -> componentDidMount
-    => Update -> render -> componentDidUpdate
+    => Mount -> constructor -> getDerivedStateFromProps -> render -> componentDidMount
+    => Update -> getDerivedStateFromProps -> shouldComponentUpdate -> render -> getSnapshotBeforeUpdate -> componentDidUpdate
     => Unmount -> componentWillUnmount
   
-    => useEffect(() => starters, [] ->cause for the change) => Used in place of life cycle hooks
-  
+    => useEffect(() => starters, [] ->cause for the change) => Used in place of life cycle hooks  
   
  Structure::
  
@@ -70,6 +69,7 @@
          :: Function Based:-
          => Passed via function 
          => Func.defaultProps={} and Func.propTypes = {}
+         => props.children => to get the values between tags
         
   
   - State :: Class Based:-
@@ -98,7 +98,13 @@
       => can use <React.Fragment>  or just <></>
     - Anything inside {...} is Javascript  
       
-      
+ ::::::::::::::::::::::::::::::::::::::::::::::::::: Styling ::::::::::::::::::::::::::::::::::::::::::::::::
+  
+   Inline CSS
+   Styled Components
+   CSS Modules
+   Radium
+   
     
  :::::::::::::::: Issues and Fixes :::::::::::::
  
