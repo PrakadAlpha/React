@@ -17,7 +17,11 @@
     => Update -> getDerivedStateFromProps -> shouldComponentUpdate -> render -> getSnapshotBeforeUpdate -> componentDidUpdate
     => Unmount -> componentWillUnmount
   
+    => Use PureComponent instead of using shouldComponentUpdate hook with condition on props
+  
     => useEffect(() => starters, [] ->cause for the change) => Used in place of life cycle hooks  
+    
+    => export default React.memo(<Component>) => 
   
  Structure::
  
@@ -100,12 +104,28 @@
       
  ::::::::::::::::::::::::::::::::::::::::::::::::::: Styling ::::::::::::::::::::::::::::::::::::::::::::::::
   
-   Inline CSS
-   Styled Components
-   CSS Modules
-   Radium
+   Inline CSS => style={{h1:normalColor}}
+   CSS Modules => npm run eject and change to modules: true or Rename the css files to app.module.css
    
+:::::::::::::::::::::::::::::::::::::::::::::::::: Hooks ::::::::::::::::::::::::::::::::::::::::::::::::    
+    React::  
+        useState 
+        useEffect
+        useContext
+        useReducer
+        useCallback
+        useMemo
+        useRef              => Used to select particular dom element using ref={anyProp} and make changes
+        useImperativeHandle
+        useLayoutEffect
+        useDebugValue
     
+    React Router::
+        useHistory
+        useParams
+        useLocation    
+        
+        
  :::::::::::::::: Issues and Fixes :::::::::::::
  
  System files monitoring limit exceeded::
