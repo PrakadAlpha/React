@@ -9,21 +9,32 @@
   - React Extension::
      => rce -> For Class based
      => rfc -> For function based 
-  - .env.local => to store the key and stuff in environmental variables, all starts with REACT_
- 
- - LifeCycles::
+     
+  - Environment Variables::  
+    => .env.local => to store the key and stuff in environmental variables, all starts with REACT_
+    => Dev.: (npm start): .env.development.local, .env.development, .env.local, .env
+    => Prod.: (npm run build): .env.production.local, .env.production, .env.local, .env
+  - Lazy Loading::   
+    => import {lazy, Suspence} from 'react'
+    => const myComp = lazy(() => import("./components/myComp"));
+    => <Suspense fallback={<div>Loading...</div>}>
+        <myComp/>
+       </Suspense>
+::::::::::::::::::::::::::::::::::::::::::::::::::: LifeCycles ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     
-    => Mount -> constructor -> getDerivedStateFromProps -> render -> componentDidMount
-    => Update -> getDerivedStateFromProps -> shouldComponentUpdate -> render -> getSnapshotBeforeUpdate -> componentDidUpdate
-    => Unmount -> componentWillUnmount
+    Mount -> constructor -> static getDerivedStateFromProps -> render -> componentDidMount(API calls)
+    Update -> static getDerivedStateFromProps -> shouldComponentUpdate -> render -> getSnapshotBeforeUpdate -> componentDidUpdate
+    Unmount -> componentWillUnmount
+    ErrorBoundary -> getDerivedStateFromError -> componentDidCatch
   
     => Use PureComponent instead of using shouldComponentUpdate hook with condition on props
   
     => useEffect(() => starters, [] ->cause for the change) => Used in place of life cycle hooks  
-    
-    => export default React.memo(<Component>) => 
+       => use the same with a return statement for componentWillUnmount()
+       
+    => export default React.memo(<Component>) => used in place for shouldComponentUpdate()
   
- Structure::
+:::::::::::::::::::::::::::::::::::::::::::::::::: Structure :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  
   Class Based => Used when states was needed, but now because of the react hooks functional based can also have states
       
@@ -54,7 +65,7 @@
        funName.propTypes = {}
        funName.defaultProps = {}
  
- :::::::::::::::::::::::::::::::::::::::::::::: Core :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ ::::::::::::::::::::::::::::::::::::::::::::::::::: Core ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  
   - Props :: Class Based:-
   
@@ -93,6 +104,7 @@
     - Use this for seperate comp rendering from '/' <Route exact path='/about' component={About}></Route>
     - Using <a> tag reset the state but Use Link from the dom for the <a> tag to persist the state of the child component
       => <Link to="/">Home</Link>
+    - Wrap the child component function withRouter(({history, location, match}) => {}) => To get the details of the current page
     
  ::::::::::::::::::::::::::::::::::::::::::::::: JSX :::::::::::::::::::::::::::::::::::::::::::::::::::::::::
  
@@ -109,21 +121,21 @@
    
 :::::::::::::::::::::::::::::::::::::::::::::::::: Hooks ::::::::::::::::::::::::::::::::::::::::::::::::    
     React::  
-        useState 
-        useEffect
-        useContext
-        useReducer
-        useCallback
-        useMemo
-        useRef              => Used to select particular dom element using ref={anyProp} and make changes
-        useImperativeHandle
-        useLayoutEffect
-        useDebugValue
+        useState => To set the states initial val and hook it with the state
+        useEffect => To make the code in useEffect() run all the time the component rerenders or controlled by dependencies
+        useContext => To use the context and props and state of the context api
+        useReducer => To pass in the reducers and the initital state and obtain the state and dispatch actions 
+        useCallback => 
+        useMemo => 
+        useRef => Used to select particular dom element using ref={anyProp} and make changes
+        useImperativeHandle => 
+        useLayoutEffect => 
+        useDebugValue => 
     
     React Router::
-        useHistory
-        useParams
-        useLocation    
+        useHistory => 
+        useParams => 
+        useLocation =>  
         
         
  :::::::::::::::: Issues and Fixes :::::::::::::
@@ -134,3 +146,23 @@
     "fs.inotify.max_user_watches=524288" => Add a line at the bottom, Then save and exit!
     "sudo sysctl -p" => To check it
       
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::: REDUX ::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
